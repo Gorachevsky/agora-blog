@@ -1,6 +1,5 @@
 import React from "react";
 import Router from "next/router";
-import ReactMarkdown from "react-markdown";
 
 export type PostProps = {
   id: string;
@@ -18,11 +17,11 @@ const Post: React.FC<{ post: PostProps }> = ({ post }) => {
   return (
     <div
       onClick={() => Router.push("/p/[id]", `/p/${post.id}`)}
-      className="container cursor-pointer rounded-md hover:bg-cyan-600"
+      className="cursor-pointer rounded-md hover:bg-cyan-600 p-4 mx-6 my-2"
     >
-      <h2 className="whitespace-normal text-4xl font-bold p-1">{post.title}</h2>
-      <small className="p-3 text-lg">By {authorName}</small>
-      <p className="text-xl pl-1">{post.content}</p>
+      <h2 className="text-4xl font-bold truncate">{post.title}</h2>
+      <p className="text-md m-4">By {authorName}</p>
+      <p className="text-lg mx-2 truncate">{post.content}</p>
     </div>
   );
 };

@@ -25,11 +25,13 @@ type Props = {
 const Home: React.FC<Props> = (props) => {
   return (
     <Layout>
-      {props.feed.map((post) => (
-        <div key={post.id} className="xl:m-16">
-          <Post post={post} />
-        </div>
-      ))}
+      <div className="flex flex-col justify-center items-center">
+        {props.feed.map((post) => (
+          <div key={post.id} className="mx-4 w-full md:w-2/4">
+            <Post post={post} />
+          </div>
+        ))}
+      </div>
     </Layout>
   );
 };
