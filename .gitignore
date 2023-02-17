@@ -12,6 +12,9 @@
 /.next/
 /out/
 
+# sensitive
+.env
+
 # production
 /build
 
