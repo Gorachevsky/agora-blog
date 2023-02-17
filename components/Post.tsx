@@ -18,11 +18,11 @@ const Post: React.FC<{ post: PostProps }> = ({ post }) => {
   return (
     <div
       onClick={() => Router.push("/p/[id]", `/p/${post.id}`)}
-      className="p-3 ml-20 mr-20 cursor-pointer rounded-md hover:bg-cyan-600"
+      className="container cursor-pointer rounded-md hover:bg-cyan-600"
     >
-      <h2 className="text-4xl font-bold p-1">{post.title}</h2>
+      <h2 className="whitespace-normal text-4xl font-bold p-1">{post.title}</h2>
       <small className="p-3 text-lg">By {authorName}</small>
-      <ReactMarkdown className="text-xl pl-1">{post.content}</ReactMarkdown>
+      <p className="text-xl pl-1">{post.content}</p>
     </div>
   );
 };
