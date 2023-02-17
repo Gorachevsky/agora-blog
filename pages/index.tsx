@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Inter } from "@next/font/google";
 import styles from "@/styles/Home.module.css";
 import { GetStaticProps } from "next";
+import Post, { PostProps } from "../components/Post";
 import prisma from "../lib/prisma";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -24,7 +25,11 @@ export const getStaticProps: GetStaticProps = async () => {
   };
 };
 
-export default function Home() {
+type Props = {
+  feed: PostProps[];
+};
+
+const Home: React.FC<Props> = (props) => {
   return (
     <>
       <Head>
@@ -40,6 +45,12 @@ export default function Home() {
             <code className={styles.code}>pages/index.tsx</code>
           </p>
           <div>
+            {props.feed.map((post) => (
+              <div key={post.id} className="post">
+                <Post post={post} />
+              </div>
+            ))}
+
             <a
               href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
               target="_blank"
@@ -139,4 +150,6 @@ export default function Home() {
       </main>
     </>
   );
-}
+};
+
+export default Home;
