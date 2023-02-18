@@ -4,14 +4,18 @@ import Post, { PostProps } from "../components/Post";
 import prisma from "../lib/prisma";
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const feed = await prisma.post.findMany({
-    where: { published: true },
-    include: {
-      author: {
-        select: { name: true },
-      },
-    },
-  });
+  const feed = JSON.parse(
+    JSON.stringify(
+      await prisma.post.findMany({
+        where: { published: true },
+        include: {
+          author: {
+            select: { name: true },
+          },
+        },
+      })
+    )
+  );
   return {
     props: { feed },
   };

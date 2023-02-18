@@ -10,6 +10,7 @@ export type PostProps = {
   } | null;
   content: string;
   published: boolean;
+  createdAt: string;
 };
 
 const Post: React.FC<{ post: PostProps }> = ({ post }) => {
