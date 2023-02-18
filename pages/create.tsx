@@ -53,7 +53,7 @@ const Draft: React.FC = () => {
           <div className="flex mx-6">
             {content && title && (
               <input
-                className="bg-white text-black rounded-md p-2 my-4 mr-4"
+                className="cursor-pointer text-black rounded-md p-2 my-4 mr-4"
                 type="submit"
                 value="Create"
               />
