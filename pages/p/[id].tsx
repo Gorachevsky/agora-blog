@@ -53,8 +53,7 @@ const Post: React.FC<PostProps> = (props) => {
         <div className="md:w-2/3 mx-8">
           <h2 className="text-4xl font-bold my-4">{title}</h2>
           <p className="ml-2 italic text-gray-400">
-            By {props?.author?.name || "Unknown author"} |{" "}
-            {props.createdAt.substring(0, 10) || ""}
+            By {props?.author?.name || "Unknown author"} | {props.createdAt}
           </p>
           <p className="ml-2 my-4 whitespace-normal">{props.content}</p>
           {!props.published && (
