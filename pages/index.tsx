@@ -7,6 +7,11 @@ export const getServerSideProps: GetServerSideProps = async () => {
   const feed = JSON.parse(
     JSON.stringify(
       await prisma.post.findMany({
+        orderBy: [
+          {
+            createdAt: "asc",
+          },
+        ],
         where: { published: true },
         include: {
           author: {
