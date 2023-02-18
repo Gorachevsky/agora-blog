@@ -15,7 +15,7 @@ const Layout: React.FC<Props> = (props) => (
       <link rel="icon" href="/favicon.ico" />
     </Head>
     <Header />
-    <div>{props.children}</div>
+    <div className="md:mt-6">{props.children}</div>
   </div>
 );
 

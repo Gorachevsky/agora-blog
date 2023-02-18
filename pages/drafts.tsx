@@ -25,15 +25,12 @@ type Props = {
 const Drafts: React.FC<Props> = (props) => {
   return (
     <Layout>
-      <div className="page">
-        <h1>My Drafts</h1>
-        <main>
-          {props.drafts.map((post) => (
-            <div key={post.id} className="post">
-              <Post post={post} />
-            </div>
-          ))}
-        </main>
+      <div className="flex flex-col justify-center items-center">
+        {props.drafts.map((post) => (
+          <div key={post.id} className="mx-4 w-full md:w-2/4">
+            <Post post={post} />
+          </div>
+        ))}
       </div>
     </Layout>
   );
