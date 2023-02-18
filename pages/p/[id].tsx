@@ -18,7 +18,7 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   });
   console.log(post);
   return {
-    props: JSON.parse(JSON.stringify(post)),
+    props: await JSON.parse(JSON.stringify(post)),
   };
 };
 
