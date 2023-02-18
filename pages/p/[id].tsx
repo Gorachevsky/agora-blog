@@ -42,6 +42,11 @@ const Post: React.FC<PostProps> = (props) => {
     title = `${title} (Draft)`;
   }
 
+  /*let postDate = ''
+  if(props.createdAt != null) {
+    postDate = props.createdAt.
+  }*/
+
   return (
     <Layout>
       <div className="flex justify-center items-center">
@@ -49,7 +54,7 @@ const Post: React.FC<PostProps> = (props) => {
           <h2 className="text-4xl font-bold my-4">{title}</h2>
           <p className="ml-2 italic text-gray-400">
             By {props?.author?.name || "Unknown author"} |{" "}
-            {props?.createdAt.substring(0, 10)}
+            {props.createdAt.substring(0, 10) || ""}
           </p>
           <p className="ml-2 my-4 whitespace-normal">{props.content}</p>
           {!props.published && (
