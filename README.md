@@ -1,4 +1,4 @@
-# Blog AGora
+# AGora's blog
 
 This is my first attempt to generate my own blog. The following technologies are involved in this development:
 
