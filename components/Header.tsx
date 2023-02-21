@@ -8,7 +8,6 @@ const Header: React.FC = () => {
     router.pathname === pathname;
 
   const path = router.pathname;
-  console.log(path);
 
   let left = (
     <div className="w-1/3 flex">
