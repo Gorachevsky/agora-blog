@@ -1,13 +1,14 @@
 import React from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { signOut, useSession } from "next-auth/react";
 
 const Header: React.FC = () => {
   const router = useRouter();
   const isActive: (pathname: string) => boolean = (pathname) =>
     router.pathname === pathname;
-
   const path = router.pathname;
+  const { data: session, status } = useSession();
 
   let left = (
     <div className="w-1/3 flex">
@@ -58,12 +59,29 @@ const Header: React.FC = () => {
 
   let right = (
     <div className="w-1/3 flex justify-end">
-      {path != "/create" && (
-        <Link href="/create" legacyBehavior>
-          <button className="border-solid border-2 border-white rounded-md p-2 m-2 md:mr-10 md:mt-4">
-            <a>New post</a>
+      {status === "loading" && <div>Validating session...</div>}
+      {!session && (
+        <div>
+          <Link href="/api/auth/signin" legacyBehavior>
+            <a data-active={isActive("/signup")}>Log in</a>
+          </Link>
+        </div>
+      )}
+      {path != "/create" && session && (
+        <div>
+          {" "}
+          <p>
+            {session?.user?.name} ({session?.user?.email})
+          </p>
+          <Link href="/create" legacyBehavior>
+            <button className="border-solid border-2 border-white rounded-md p-2 m-2 md:mr-10 md:mt-4">
+              <a>New post</a>
+            </button>
+          </Link>
+          <button onClick={() => signOut()}>
+            <a>Log out</a>
           </button>
-        </Link>
+        </div>
       )}
     </div>
   );
