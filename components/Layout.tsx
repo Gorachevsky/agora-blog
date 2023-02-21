@@ -15,7 +15,7 @@ const Layout: React.FC<Props> = (props) => (
         content="A mini blog about my travel adventures"
       />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <link rel="icon" href="/favicon.ico" />
+      <link rel="icon" href="/agora-icon.ico" />
     </Head>
     <Header />
     <div className="md:mt-6">{props.children}</div>
