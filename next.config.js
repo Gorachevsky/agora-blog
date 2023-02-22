@@ -5,9 +5,5 @@ const nextConfig = {
 
 module.exports = {
   nextConfig,
-  typescript: {
-    // !! WARN !!
-    ignoreBuildErrors: true,
-  },
   plugins: ["tailwindcss", "postcss-preset-env"],
 };

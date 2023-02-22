@@ -5,14 +5,18 @@ import Post, { PostProps } from "../components/Post";
 import prisma from "../lib/prisma";
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const drafts = await prisma.post.findMany({
-    where: { published: false },
-    include: {
-      author: {
-        select: { name: true },
-      },
-    },
-  });
+  const drafts = JSON.parse(
+    JSON.stringify(
+      await prisma.post.findMany({
+        where: { published: false },
+        include: {
+          author: {
+            select: { name: true },
+          },
+        },
+      })
+    )
+  );
   return {
     props: { drafts },
   };
