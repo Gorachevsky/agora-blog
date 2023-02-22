@@ -57,34 +57,39 @@ const Header: React.FC = () => {
     );
   }
 
-  let right = (
-    <div className="w-1/3 flex justify-end">
-      {status === "loading" && <div>Validating session...</div>}
-      {!session && (
-        <div>
-          <Link href="/api/auth/signin" legacyBehavior>
-            <a data-active={isActive("/signup")}>Log in</a>
-          </Link>
-        </div>
-      )}
-      {path != "/create" && session && (
-        <div>
-          {" "}
-          <p>
-            {session?.user?.name} ({session?.user?.email})
-          </p>
-          <Link href="/create" legacyBehavior>
-            <button className="border-solid border-2 border-white rounded-md p-2 m-2 md:mr-10 md:mt-4">
-              <a>New post</a>
-            </button>
-          </Link>
-          <button onClick={() => signOut()}>
-            <a>Log out</a>
+  let right = <div className="w-1/3 flex justify-end"></div>;
+
+  if (status === "loading") {
+    right = (
+      <div className="w-1/3 flex justify-end">
+        <p>Validating session...</p>
+      </div>
+    );
+  } else if (!session) {
+    right = (
+      <div className="w-1/3 flex justify-end">
+        <Link href="/api/auth/signin" legacyBehavior>
+          <a data-active={isActive("/signup")}>Log in</a>
+        </Link>
+      </div>
+    );
+  } else if (session && path != "/create") {
+    right = (
+      <div className="w-1/3 flex justify-end">
+        <p>
+          {session?.user?.name} ({session?.user?.email})
+        </p>
+        <Link href="/create" legacyBehavior>
+          <button className="border-solid border-2 border-white rounded-md p-2 m-2 md:mr-10 md:mt-4">
+            <a>New post</a>
           </button>
-        </div>
-      )}
-    </div>
-  );
+        </Link>
+        <button onClick={() => signOut()}>
+          <a>Log out</a>
+        </button>
+      </div>
+    );
+  }
 
   return (
     <nav className="flex">
