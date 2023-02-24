@@ -6,9 +6,6 @@ import GoogleProvider from "next-auth/providers/google";
 import prisma from "../../../lib/prisma";
 import CredentialsProvider from "next-auth/providers/credentials";
 
-const authHandler: NextApiHandler = (req, res) => NextAuth(req, res, options);
-export default authHandler;
-
 const options = {
   providers: [
     CredentialsProvider({
@@ -18,18 +15,22 @@ const options = {
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials, req) {
-        const res = await fetch("/your/endpoint", {
-          method: "POST",
-          body: JSON.stringify(credentials),
-          headers: { "Content-Type": "application/json" },
+        const user = await prisma.user.findUnique({
+          where: {
+            email: String(credentials?.username),
+          },
         });
-        const user = await res.json();
-
-        if (res.ok && user) {
-          return user;
+        let checkPassword = false;
+        if (!user) {
+          throw new Error("No user Found with Email Please Sign Up...!");
+        } else {
+          checkPassword = credentials?.password === user.password;
+          if (checkPassword) {
+            return user;
+          } else {
+            throw new Error("Username or Password doesn't match");
+          }
         }
-
-        return null;
       },
     }),
     GitHubProvider({
@@ -41,6 +42,16 @@ const options = {
       clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
     }),
   ],
+  pages: {
+    error: "/authError",
+  },
   adapter: PrismaAdapter(prisma),
   secret: process.env.SECRET,
+  session: {
+    strategy: "jwt" as const,
+  },
 };
+
+const authHandler: NextApiHandler = (req, res) => NextAuth(req, res, options);
+
+export default authHandler;
