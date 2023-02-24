@@ -69,7 +69,9 @@ const Header: React.FC = () => {
     right = (
       <div className="w-1/3 flex justify-end">
         <Link href="/api/auth/signin" legacyBehavior>
-          <a data-active={isActive("/signup")}>Log in</a>
+          <button className="border-solid border-2 border-white rounded-md p-2 m-2 md:mr-10 md:mt-4">
+            <a data-active={isActive("/signup")}>Log in</a>
+          </button>
         </Link>
       </div>
     );
@@ -80,11 +82,14 @@ const Header: React.FC = () => {
           {session?.user?.name} ({session?.user?.email})
         </p>
         <Link href="/create" legacyBehavior>
-          <button className="border-solid border-2 border-white rounded-md p-2 m-2 md:mr-10 md:mt-4">
+          <button className="border-solid border-2 border-white rounded-md p-2 m-2 md:mr-4 md:mt-4">
             <a>New post</a>
           </button>
         </Link>
-        <button onClick={() => signOut()}>
+        <button
+          className="border-solid border-2 border-white rounded-md p-2 m-2 md:mr-10 md:mt-4"
+          onClick={() => signOut()}
+        >
           <a>Log out</a>
         </button>
       </div>
