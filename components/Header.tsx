@@ -12,7 +12,7 @@ const Header: React.FC = () => {
 
   let left = (
     <div className="w-1/3 flex">
-      {(path === "/drafts" || path === "/create" || path === "/p/[id]") && (
+      {(path === "/drafts" || path === "/create" || path === "/posts/[id]") && (
         <Link href="/" legacyBehavior>
           <a
             data-active={isActive("/")}
@@ -68,9 +68,9 @@ const Header: React.FC = () => {
   } else if (!session) {
     right = (
       <div className="w-1/3 flex justify-end">
-        <Link href="/api/auth/signin" legacyBehavior>
+        <Link href="/login">
           <button className="border-solid border-2 border-white rounded-md p-2 m-2 md:mr-10 md:mt-4">
-            <a data-active={isActive("/signup")}>Log in</a>
+            Log in
           </button>
         </Link>
       </div>
