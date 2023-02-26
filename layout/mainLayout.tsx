@@ -5,11 +5,11 @@ type Props = {
   children: ReactNode;
 };
 
-const Layout: React.FC<Props> = (props) => (
+const MainLayout: React.FC<Props> = (props) => (
   <div className="min-h-screen text-white break-words">
     <Header />
     <div className="md:mt-6">{props.children}</div>
   </div>
 );
 
-export default Layout;
+export default MainLayout;
