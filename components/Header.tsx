@@ -9,6 +9,7 @@ const Header: React.FC = () => {
     router.pathname === pathname;
   const path = router.pathname;
   const { data: session, status } = useSession();
+  console.log('session: ',session);
 
   let left = (
     <div className="w-1/3 flex">

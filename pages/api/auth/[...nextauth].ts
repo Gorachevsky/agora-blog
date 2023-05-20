@@ -50,6 +50,16 @@ const options = {
   session: {
     strategy: "jwt" as const,
   },
+  callbacks: {
+    async session({ session }) {
+      session.user = await prisma.user.findUnique({
+        where: {
+          email: String(session?.user?.email),
+        },
+      });
+      return session;
+    },
+  },
 };
 
 const authHandler: NextApiHandler = (req, res) => NextAuth(req, res, options);
