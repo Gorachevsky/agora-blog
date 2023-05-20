@@ -51,7 +51,7 @@ const options = {
     strategy: "jwt" as const,
   },
   callbacks: {
-    async session({ session }) {
+    async session({ session }: { session: any }) {
       session.user = await prisma.user.findUnique({
         where: {
           email: String(session?.user?.email),
