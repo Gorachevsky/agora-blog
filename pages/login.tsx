@@ -32,7 +32,7 @@ const Login: React.FC<{}> = () => {
 
     console.log(status);
 
-    if (status?.ok) router.push(status?.url);
+    if (status?.ok) router.push(status.url || "/");
   }
 
   // Google Handler function
