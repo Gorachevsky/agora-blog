@@ -9,16 +9,21 @@ const Header: React.FC = () => {
     router.pathname === pathname;
   const path = router.pathname;
   const { data: session, status } = useSession();
+  console.log("session: ", session);
 
   let left = (
     <div className="w-1/3 flex">
-      {(path === "/drafts" || path === "/create" || path === "/p/[id]") && (
+      {(path === "/drafts" ||
+        path === "/create" ||
+        path === "/login" ||
+        path === "/register" ||
+        path === "/posts/[id]") && (
         <Link href="/" legacyBehavior>
           <a
             data-active={isActive("/")}
             className="border-solid border-2 border-white rounded-md p-2 m-2 md:ml-10 md:mt-4"
           >
-            Feed
+            Inicio
           </a>
         </Link>
       )}
@@ -40,7 +45,7 @@ const Header: React.FC = () => {
   if (path === "/") {
     center = (
       <div className="w-1/3 flex justify-center items-center text-2xl font-bold">
-        Feed
+        Anton&apos;s Resume
       </div>
     );
   } else if (path === "/drafts") {
@@ -65,12 +70,12 @@ const Header: React.FC = () => {
         <p>Validating session...</p>
       </div>
     );
-  } else if (!session) {
+  } else if (!session && path != "/login" && path != "/register") {
     right = (
       <div className="w-1/3 flex justify-end">
-        <Link href="/api/auth/signin" legacyBehavior>
+        <Link href="/login">
           <button className="border-solid border-2 border-white rounded-md p-2 m-2 md:mr-10 md:mt-4">
-            <a data-active={isActive("/signup")}>Log in</a>
+            Log in
           </button>
         </Link>
       </div>
