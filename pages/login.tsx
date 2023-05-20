@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { HiAtSymbol, HiFingerPrint } from "react-icons/hi";
 import { useState } from "react";
-import { signIn, signOut } from "next-auth/react";
+import { signIn } from "next-auth/react";
 import { useFormik } from "formik";
 import login_validate from "../lib/validate";
 import { useRouter } from "next/router";
@@ -22,7 +22,7 @@ const Login: React.FC<{}> = () => {
     onSubmit,
   });
 
-  async function onSubmit(values) {
+  async function onSubmit(values: any) {
     const status = await signIn("credentials", {
       redirect: false,
       email: values.email,
@@ -32,7 +32,7 @@ const Login: React.FC<{}> = () => {
 
     console.log(status);
 
-    if (status.ok) router.push(status.url);
+    if (status?.ok) router.push(status?.url);
   }
 
   // Google Handler function
