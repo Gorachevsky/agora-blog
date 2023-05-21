@@ -1,6 +1,4 @@
 export default function login_validate(values: any) {
-  console.log("validasao");
-
   const errors = {
     email: "",
     password: "",
