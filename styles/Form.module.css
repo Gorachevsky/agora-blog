@@ -1,5 +1,5 @@
 .input_group {
-  @apply flex border rounded-xl;
+  @apply flex border-2 rounded-xl hover:border-blue-500;
   position: relative;
 }
 
@@ -22,8 +22,16 @@
   @apply w-full rounded-xl py-4 flex justify-center gap-2 bg-gray-200 text-black hover:bg-gradient-to-r hover:from-blue-500 hover:to-indigo-500 hover:text-white relative;
 }
 
-.button_logo {
-  @apply absolute top-4 right-1/4;
+.logo_google {
+  position: absolute;
+  top: -1px;
+  right: -30px;
+}
+
+.logo_github {
+  position: absolute;
+  top: -4px;
+  right: -34px;
 }
 
 .input_text + * {
