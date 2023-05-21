@@ -25,6 +25,7 @@ const Login: React.FC<{}> = () => {
   });
 
   async function onSubmit(values: any) {
+    console.log("log");
     const status = await signIn("credentials", {
       redirect: false,
       email: values.email,
@@ -32,9 +33,25 @@ const Login: React.FC<{}> = () => {
       callbackUrl: "/",
     });
 
-    console.log(status);
-
     if (status?.ok) router.push(status.url || "/");
+  }
+
+  async function test(event: any) {
+    event.preventDefault();
+    console.log("event: ", event.target[0].value);
+    console.log("event: ", event.target[1].value);
+    if (!formik.errors.email && !formik.errors.password) {
+      console.log("llamamo");
+      const status = await signIn("credentials", {
+        redirect: false,
+        email: event.target[0].value,
+        password: event.target[1].value,
+        callbackUrl: "/",
+      });
+      console.log("status: ", status);
+
+      if (status?.ok) router.push(status.url || "/");
+    }
   }
 
   // Google Handler function

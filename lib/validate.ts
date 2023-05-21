@@ -1,12 +1,13 @@
 export default function login_validate(values: any) {
   const errors = {
-    email: {},
-    password: {},
+    email: "",
+    password: "",
   };
 
   if (!values.email) {
     errors.email = "Required";
   } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
+    console.log("mail");
     errors.email = "Invalid email address";
   }
 
@@ -23,10 +24,10 @@ export default function login_validate(values: any) {
 
 export function registerValidate(values: any) {
   const errors = {
-    username: {},
-    email: {},
-    password: {},
-    cpassword: {},
+    username: "",
+    email: "",
+    password: "",
+    cpassword: "",
   };
 
   if (!values.username) {

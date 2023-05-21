@@ -14,10 +14,10 @@ const options = {
         username: { label: "Username", type: "text" },
         password: { label: "Password", type: "password" },
       },
-      async authorize(credentials, req) {
+      async authorize(credentials: any) {
         const user = await prisma.user.findUnique({
           where: {
-            email: String(credentials?.username),
+            email: String(credentials?.email),
           },
         });
         let checkPassword = false;
