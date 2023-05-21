@@ -32,8 +32,6 @@ const Login: React.FC<{}> = () => {
       callbackUrl: "/",
     });
 
-    console.log(status);
-
     if (status?.ok) router.push(status.url || "/");
   }
 
