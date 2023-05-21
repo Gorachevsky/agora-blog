@@ -53,7 +53,7 @@ const Login: React.FC<{}> = () => {
         <title>Login</title>
       </Head>
       <MainLayout>
-        <section className="w-1/4 mx-auto flex flex-col gap-10">
+        <section className="w-full sm:w-2/3 md:w-1/2 lg:w-1/3 xl:w-1/4 2xl:w-1/5 mx-auto px-6 sm:px-0 flex flex-col gap-10">
           <div className="title">
             <h1 className="text-white text-4xl font-bold py-4">
               Inicia Sesión
@@ -126,14 +126,16 @@ const Login: React.FC<{}> = () => {
                 onClick={handleGoogleSignin}
                 className={styles.button_custom}
               >
-                Sign In with Google{" "}
-                <Image
-                  src={"/assets/google.svg"}
-                  width={20}
-                  height={20}
-                  className="absolute top-4 right-32"
-                  alt="Google"
-                ></Image>
+                <span className="relative">
+                  Sign In with Google
+                  <Image
+                    src={"/assets/google.svg"}
+                    width={20}
+                    height={20}
+                    alt="Google"
+                    className={styles.logo_google}
+                  ></Image>
+                </span>
               </button>
             </div>
             <div className="input-button">
@@ -142,14 +144,16 @@ const Login: React.FC<{}> = () => {
                 onClick={handleGithubSignin}
                 className={styles.button_custom}
               >
-                Sign In with Github{" "}
-                <Image
-                  src={"/assets/github.svg"}
-                  width={25}
-                  height={25}
-                  className="absolute top-3 right-32"
-                  alt="Github"
-                ></Image>
+                <span className="relative">
+                  Sign In with Github
+                  <Image
+                    src={"/assets/github.svg"}
+                    width={25}
+                    height={25}
+                    alt="Github"
+                    className={styles.logo_github}
+                  ></Image>
+                </span>
               </button>
             </div>
           </form>
