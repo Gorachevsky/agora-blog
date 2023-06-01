@@ -3,38 +3,22 @@ import Link from "next/link";
 import styles from "../styles/Form.module.css";
 import { HiAtSymbol, HiFingerPrint, HiOutlineUser } from "react-icons/hi";
 import { useState } from "react";
-import { useFormik } from "formik";
-import { registerValidate } from "../lib/validate";
+import {
+  register_username,
+  register_email,
+  register_password,
+  register_confirm_password,
+} from "../lib/validate";
 import { useRouter } from "next/router";
 import MainLayout from "../layout/mainLayout";
+import { Formik, Form, Field } from "formik";
 
 export default function Register() {
-  const [show, setShow] = useState({ password: false, cpassword: false });
-  const router = useRouter();
-  const formik = useFormik({
-    initialValues: {
-      username: "",
-      email: "",
-      password: "",
-      cpassword: "",
-    },
-    validate: registerValidate,
-    onSubmit,
+  const [show, setShow] = useState({
+    password: false,
+    confirm_password: false,
   });
-
-  async function onSubmit(values: any) {
-    const options = {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(values),
-    };
-
-    await fetch("http://localhost:3000/api/auth/signup", options)
-      .then((res) => res.json())
-      .then((data) => {
-        if (data) router.push("http://localhost:3000");
-      });
-  }
+  const router = useRouter();
 
   return (
     <>
@@ -51,109 +35,138 @@ export default function Register() {
             </p>
           </div>
 
-          {/* form */}
-          <form className="flex flex-col gap-5" onSubmit={formik.handleSubmit}>
-            <div
-              className={`${styles.input_group} ${
-                formik.errors.username && formik.touched.username
-                  ? "border-rose-600"
-                  : ""
-              }`}
-            >
-              <input
-                type="text"
-                placeholder="Username"
-                className={styles.input_text}
-                {...formik.getFieldProps("username")}
-              />
-              <span className="icon flex items-center px-4">
-                <HiOutlineUser size={25} />
-              </span>
-            </div>
-            {formik.errors.username && formik.touched.username ? (
-              <span className="text-rose-500">{formik.errors.username}</span>
-            ) : (
-              <></>
-            )}{" "}
-            <div
-              className={`${styles.input_group} ${
-                formik.errors.email && formik.touched.email
-                  ? "border-rose-600"
-                  : ""
-              }`}
-            >
-              <input
-                type="email"
-                placeholder="Email"
-                className={styles.input_text}
-                {...formik.getFieldProps("email")}
-              />
-              <span className="icon flex items-center px-4">
-                <HiAtSymbol size={25} />
-              </span>
-            </div>
-            {formik.errors.email && formik.touched.email ? (
-              <span className="text-rose-500">{formik.errors.email}</span>
-            ) : (
-              <></>
+          <Formik
+            initialValues={{
+              username: "",
+              email: "",
+              password: "",
+              confirm_password: "",
+            }}
+            onSubmit={async (values) => {
+              const options = {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(values),
+              };
+
+              await fetch("http://localhost:3000/api/auth/signup", options)
+                .then((res) => res.json())
+                .then((data) => {
+                  if (data) router.push("http://localhost:3000");
+                });
+            }}
+          >
+            {({ errors, touched }) => (
+              <Form className="flex flex-col gap-5">
+                <div
+                  className={`${styles.input_group} ${
+                    errors.username && touched.username ? "border-rose-600" : ""
+                  }`}
+                >
+                  <Field
+                    name="username"
+                    type="text"
+                    placeholder="Username"
+                    className={styles.input_text}
+                    validate={register_username}
+                  />
+                  <span className="icon flex items-center px-4">
+                    <HiOutlineUser size={25} />
+                  </span>
+                </div>
+                {errors.username && touched.username ? (
+                  <span className="text-rose-500">{errors.username}</span>
+                ) : (
+                  <></>
+                )}{" "}
+                <div
+                  className={`${styles.input_group} ${
+                    errors.email && touched.email ? "border-rose-600" : ""
+                  }`}
+                >
+                  <Field
+                    name="email"
+                    type="email"
+                    placeholder="Email"
+                    className={styles.input_text}
+                    validate={register_email}
+                  />
+                  <span className="icon flex items-center px-4">
+                    <HiAtSymbol size={25} />
+                  </span>
+                </div>
+                {errors.email && touched.email ? (
+                  <span className="text-rose-500">{errors.email}</span>
+                ) : (
+                  <></>
+                )}
+                <div
+                  className={`${styles.input_group} ${
+                    errors.password && touched.password ? "border-rose-600" : ""
+                  }`}
+                >
+                  <Field
+                    name="password"
+                    type={`${show.password ? "text" : "password"}`}
+                    placeholder="Password"
+                    className={styles.input_text}
+                    validate={register_password}
+                  />
+                  <span
+                    className="icon flex items-center px-4"
+                    onClick={() =>
+                      setShow({ ...show, password: !show.password })
+                    }
+                  >
+                    <HiFingerPrint size={25} />
+                  </span>
+                </div>
+                {errors.password && touched.password ? (
+                  <span className="text-rose-500">{errors.password}</span>
+                ) : (
+                  <></>
+                )}
+                <div
+                  className={`${styles.input_group} ${
+                    errors.confirm_password && touched.confirm_password
+                      ? "border-rose-600"
+                      : ""
+                  }`}
+                >
+                  <Field
+                    name="confirm_password"
+                    type={`${show.confirm_password ? "text" : "password"}`}
+                    placeholder="Confirm Password"
+                    className={styles.input_text}
+                    validate={register_confirm_password}
+                  />
+                  <span
+                    className="icon flex items-center px-4"
+                    onClick={() =>
+                      setShow({
+                        ...show,
+                        confirm_password: !show.confirm_password,
+                      })
+                    }
+                  >
+                    <HiFingerPrint size={25} />
+                  </span>
+                </div>
+                {errors.confirm_password && touched.confirm_password ? (
+                  <span className="text-rose-500">
+                    {errors.confirm_password}
+                  </span>
+                ) : (
+                  <></>
+                )}
+                <div className="input-button">
+                  <button type="submit" className={styles.button}>
+                    Sign Up
+                  </button>
+                </div>
+              </Form>
             )}
-            <div
-              className={`${styles.input_group} ${
-                formik.errors.password && formik.touched.password
-                  ? "border-rose-600"
-                  : ""
-              }`}
-            >
-              <input
-                type={`${show.password ? "text" : "password"}`}
-                placeholder="Password"
-                className={styles.input_text}
-                {...formik.getFieldProps("password")}
-              />
-              <span
-                className="icon flex items-center px-4"
-                onClick={() => setShow({ ...show, password: !show.password })}
-              >
-                <HiFingerPrint size={25} />
-              </span>
-            </div>
-            {formik.errors.password && formik.touched.password ? (
-              <span className="text-rose-500">{formik.errors.password}</span>
-            ) : (
-              <></>
-            )}
-            <div
-              className={`${styles.input_group} ${
-                formik.errors.cpassword && formik.touched.cpassword
-                  ? "border-rose-600"
-                  : ""
-              }`}
-            >
-              <input
-                type={`${show.cpassword ? "text" : "password"}`}
-                placeholder="Confirm Password"
-                className={styles.input_text}
-                {...formik.getFieldProps("cpassword")}
-              />
-              <span
-                className="icon flex items-center px-4"
-                onClick={() => setShow({ ...show, cpassword: !show.cpassword })}
-              >
-                <HiFingerPrint size={25} />
-              </span>
-            </div>
-            {formik.errors.cpassword && formik.touched.cpassword ? (
-              <span className="text-rose-500">{formik.errors.cpassword}</span>
-            ) : (
-              <></>
-            )}
-            {/* login buttons */}
-            <div className="input-button">
-              <button type="submit" className={styles.button}>
-                Sign Up
-              </button>
-            </div>
-          </form>
+          </Formik>
 
           {/* bottom */}
           <p className="text-center text-gray-400 ">

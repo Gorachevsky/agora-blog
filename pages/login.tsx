@@ -6,7 +6,7 @@ import { HiAtSymbol, HiFingerPrint } from "react-icons/hi";
 import styles from "../styles/Form.module.css";
 import { useState } from "react";
 import { signIn } from "next-auth/react";
-import { validateEmail, validatePassword } from "../lib/validate";
+import { login_email, login_password } from "../lib/validate";
 import { useRouter } from "next/router";
 import MainLayout from "../layout/mainLayout";
 import { Formik, Form, Field } from "formik";
@@ -70,7 +70,7 @@ const Login: React.FC<{}> = () => {
                     type="email"
                     placeholder="Email"
                     className={styles.input_text}
-                    validate={validateEmail}
+                    validate={login_email}
                   />
 
                   <span className="icon flex items-center px-4">
@@ -93,7 +93,7 @@ const Login: React.FC<{}> = () => {
                     type={`${show ? "text" : "password"}`}
                     placeholder="Password"
                     className={styles.input_text}
-                    validate={validatePassword}
+                    validate={login_password}
                   />
                   <span
                     className="icon flex items-center px-4"
