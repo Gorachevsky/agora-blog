@@ -1,25 +1,23 @@
-export default function login_validate(values: any) {
-  const errors = {
-    email: "",
-    password: "",
-  };
-
-  if (!values.email) {
-    errors.email = "Required";
-  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-    console.log("mail");
-    errors.email = "Invalid email address";
+export function validateEmail(value: any) {
+  let error;
+  if (!value) {
+    error = "Required";
+  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value)) {
+    error = "Invalid email address";
   }
+  return error;
+}
 
-  if (!values.password) {
-    errors.password = "Required";
-  } else if (values.password.length < 8 || values.password.length > 20) {
-    errors.password = "Must be greater than 8 and less than 20 characters long";
-  } else if (values.password.includes(" ")) {
-    errors.password = "Password can't contain blank spaces";
+export function validatePassword(value: String) {
+  let error;
+  if (!value) {
+    error = "Required";
+  } else if (value.length < 8 || value.length > 20) {
+    error = "Must be greater than 8 and less than 20 characters long";
+  } else if (value.includes(" ")) {
+    error = "Password can't contain blank spaces";
   }
-
-  return errors;
+  return error;
 }
 
 export function registerValidate(values: any) {
