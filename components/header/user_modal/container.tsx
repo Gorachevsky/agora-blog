@@ -6,7 +6,7 @@ const Container: React.FC<{ props: any }> = ({ props }) => {
   const router = useRouter();
 
   return (
-    <div className="w-full bg-gray-600 p-4 rounded-b-xl mt-0.5">
+    <div className="w-full bg-gray-600 p-4 rounded-b-xl border-black border-t">
       {props ? (
         <div>
           <div
