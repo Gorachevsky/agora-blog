@@ -10,7 +10,10 @@ const Button: React.FC<{ props: ButtonProps }> = ({ props }) => {
   const router = useRouter();
 
   return (
-    <div className="p-4" onClick={() => router.push(props.path)}>
+    <div
+      className="pt-2 px-2 mx-4 hover:border-b-2 border-white cursor-pointer"
+      onClick={() => router.push(props.path)}
+    >
       {props.title}
     </div>
   );

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { useSession } from "next-auth/react";
@@ -9,9 +8,6 @@ import UserButton from "./user_button";
 
 const Container: React.FC = () => {
   const router = useRouter();
-  const isActive: (pathname: string) => boolean = (pathname) =>
-    router.pathname === pathname;
-  const path = router.pathname;
   const { data: session, status } = useSession();
   const [userModal, setUserModal] = useState(false);
 
@@ -43,7 +39,7 @@ const Container: React.FC = () => {
   );
 
   let center = (
-    <div className="w-7/12 flex">
+    <div className="w-7/12 flex mt-6">
       <NavButton props={{ title: "Resume", path: "/resume" }} />
       <NavButton props={{ title: "Docs", path: "/docs" }} />
       <NavButton props={{ title: "Blog", path: "/blog" }} />
@@ -84,7 +80,7 @@ const Container: React.FC = () => {
   );
 
   return (
-    <nav className="h-16 flex">
+    <nav className="h-14 flex">
       {left}
       {center}
       {right}
