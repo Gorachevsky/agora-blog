@@ -45,6 +45,27 @@ model Post {
   authorId  String?
 }
 
+model Profile {
+  id        String  @default(cuid()) @id
+  firstName String?
+  lastName  String?
+  image     String?
+  company   String?
+  email     String?
+  phone     Int?
+  jobTitle  String?
+  user      User?   @relation(fields: [userId], references: [id])
+  userId    String?
+}
+
+model Setting {
+  id        String  @default(cuid()) @id
+  language  String  @default("English_EU")
+  theme     String  @default("Light")
+  user      User?   @relation(fields: [userId], references: [id])
+  userId    String?
+}
+
 model User {
   id            String    @id @default(cuid())
   name          String?

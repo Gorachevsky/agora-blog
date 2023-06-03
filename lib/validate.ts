@@ -52,15 +52,10 @@ export function register_password(password: string) {
   return error;
 }
 
-export function register_confirm_password(
-  confirm_password: string,
-  password: string
-) {
+export function register_confirm_password(confirm_password: string) {
   let error;
   if (!confirm_password) {
     error = "Required";
-  } else if (password !== confirm_password) {
-    error = "Password not match...!";
   } else if (confirm_password.includes(" ")) {
     error = "Invalid confirm password";
   }

@@ -22,9 +22,6 @@ export default function Register() {
 
   return (
     <>
-      <Head>
-        <title>Register</title>
-      </Head>
       <MainLayout>
         <section className="w-full sm:w-2/3 md:w-1/2 lg:w-1/3 xl:w-1/4 2xl:w-1/5 mx-auto px-6 sm:px-0 flex flex-col gap-10">
           <div className="title">
@@ -56,11 +53,13 @@ export default function Register() {
                 });
             }}
           >
-            {({ errors, touched }) => (
+            {(props) => (
               <Form className="flex flex-col gap-5">
                 <div
                   className={`${styles.input_group} ${
-                    errors.username && touched.username ? "border-rose-600" : ""
+                    props.errors.username && props.touched.username
+                      ? "border-rose-600"
+                      : ""
                   }`}
                 >
                   <Field
@@ -74,14 +73,16 @@ export default function Register() {
                     <HiOutlineUser size={25} />
                   </span>
                 </div>
-                {errors.username && touched.username ? (
-                  <span className="text-rose-500">{errors.username}</span>
+                {props.errors.username && props.touched.username ? (
+                  <span className="text-rose-500">{props.errors.username}</span>
                 ) : (
                   <></>
                 )}{" "}
                 <div
                   className={`${styles.input_group} ${
-                    errors.email && touched.email ? "border-rose-600" : ""
+                    props.errors.email && props.touched.email
+                      ? "border-rose-600"
+                      : ""
                   }`}
                 >
                   <Field
@@ -95,14 +96,16 @@ export default function Register() {
                     <HiAtSymbol size={25} />
                   </span>
                 </div>
-                {errors.email && touched.email ? (
-                  <span className="text-rose-500">{errors.email}</span>
+                {props.errors.email && props.touched.email ? (
+                  <span className="text-rose-500">{props.errors.email}</span>
                 ) : (
                   <></>
                 )}
                 <div
                   className={`${styles.input_group} ${
-                    errors.password && touched.password ? "border-rose-600" : ""
+                    props.errors.password && props.touched.password
+                      ? "border-rose-600"
+                      : ""
                   }`}
                 >
                   <Field
@@ -121,14 +124,15 @@ export default function Register() {
                     <HiFingerPrint size={25} />
                   </span>
                 </div>
-                {errors.password && touched.password ? (
-                  <span className="text-rose-500">{errors.password}</span>
+                {props.errors.password && props.touched.password ? (
+                  <span className="text-rose-500">{props.errors.password}</span>
                 ) : (
                   <></>
                 )}
                 <div
                   className={`${styles.input_group} ${
-                    errors.confirm_password && touched.confirm_password
+                    props.errors.confirm_password &&
+                    props.touched.confirm_password
                       ? "border-rose-600"
                       : ""
                   }`}
@@ -152,10 +156,13 @@ export default function Register() {
                     <HiFingerPrint size={25} />
                   </span>
                 </div>
-                {errors.confirm_password && touched.confirm_password ? (
+                {props.errors.confirm_password &&
+                props.touched.confirm_password ? (
                   <span className="text-rose-500">
-                    {errors.confirm_password}
+                    {props.errors.confirm_password}
                   </span>
+                ) : props.values.confirm_password !== props.values.password ? (
+                  <span className="text-rose-500">Password not match...!</span>
                 ) : (
                   <></>
                 )}

@@ -1,10 +1,8 @@
 import React from "react";
 import { signOut } from "next-auth/react";
-import Router, { useRouter } from "next/router";
+import Router from "next/router";
 
 const Container: React.FC<{ props: any }> = ({ props }) => {
-  const router = useRouter();
-
   return (
     <div className="w-full bg-gray-600 p-4 rounded-b-xl border-black border-t">
       {props ? (
@@ -44,13 +42,13 @@ const Container: React.FC<{ props: any }> = ({ props }) => {
         <div>
           <div
             className="py-4 mb-2 text-center rounded-xl cursor-pointer hover:bg-black"
-            onClick={() => router.push("auth/login")}
+            onClick={() => Router.push("auth/login", `/auth/login`)}
           >
             Log in
           </div>
           <div
             className="py-4 text-center rounded-xl cursor-pointer hover:bg-black"
-            onClick={() => router.push("/auth/register")}
+            onClick={() => Router.push("/auth/register", `/auth/register`)}
           >
             Sign in
           </div>
