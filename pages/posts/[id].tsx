@@ -6,6 +6,7 @@ import { PostProps } from "../../components/post";
 import prisma from "../../lib/prisma";
 
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
+  console.log(params);
   const post = await prisma.post.findUnique({
     where: {
       id: String(params?.id),

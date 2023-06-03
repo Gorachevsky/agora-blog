@@ -1,6 +1,6 @@
 import React from "react";
 import { signOut } from "next-auth/react";
-import { useRouter } from "next/router";
+import Router, { useRouter } from "next/router";
 
 const Container: React.FC<{ props: any }> = ({ props }) => {
   const router = useRouter();
@@ -11,19 +11,25 @@ const Container: React.FC<{ props: any }> = ({ props }) => {
         <div>
           <div
             className="py-4 mb-2 text-center rounded-xl cursor-pointer hover:bg-black"
-            onClick={() => router.push("/profile")}
+            onClick={() =>
+              Router.push("/user/profile/[id]", `/user/profile/${props.id}`)
+            }
           >
             Profile
           </div>
           <div
             className="py-4 mb-2 text-center rounded-xl cursor-pointer hover:bg-black"
-            onClick={() => router.push("/posts")}
+            onClick={() =>
+              Router.push("/user/posts/[id]", `/user/posts/${props.id}`)
+            }
           >
-            My posts
+            Posts
           </div>
           <div
             className="py-4 mb-2 text-center rounded-xl cursor-pointer hover:bg-black"
-            onClick={() => router.push("/settings")}
+            onClick={() =>
+              Router.push("/user/settings/[id]", `/user/settings/${props.id}`)
+            }
           >
             Settings
           </div>

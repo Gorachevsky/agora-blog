@@ -40,10 +40,10 @@ const Container: React.FC = () => {
 
   let center = (
     <div className="w-7/12 flex mt-6">
-      <NavButton props={{ title: "Resume", path: "/resume" }} />
-      <NavButton props={{ title: "Docs", path: "/docs" }} />
-      <NavButton props={{ title: "Blog", path: "/blog" }} />
-      <NavButton props={{ title: "Contact", path: "/contact" }} />
+      <NavButton props={{ title: "Resume", path: "/resume/main" }} />
+      <NavButton props={{ title: "Docs", path: "/docs/main" }} />
+      <NavButton props={{ title: "Blog", path: "/blog/main" }} />
+      <NavButton props={{ title: "Contact", path: "/contact/main" }} />
     </div>
   );
 

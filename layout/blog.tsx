@@ -6,10 +6,10 @@ type Props = {
   children: ReactNode;
 };
 
-const MainLayout: React.FC<Props> = (props) => (
+const BlogLayout: React.FC<Props> = (props) => (
   <div className="min-h-screen text-white break-words">
     <Head>
-      <title>Agora&apos;s Home</title>
+      <title>Agora&apos;s Blog</title>
       <meta
         name="description"
         content="A mini blog about my travel adventures"
@@ -22,4 +22,4 @@ const MainLayout: React.FC<Props> = (props) => (
   </div>
 );
 
-export default MainLayout;
+export default BlogLayout;
