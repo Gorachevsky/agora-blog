@@ -161,7 +161,11 @@ export default function Register() {
                   <span className="text-rose-500">
                     {props.errors.confirm_password}
                   </span>
-                ) : props.values.confirm_password !== props.values.password ? (
+                ) : props.values.confirm_password !== props.values.password &&
+                  props.values.confirm_password !== "" &&
+                  !props.values.password.includes(
+                    props.values.confirm_password
+                  ) ? (
                   <span className="text-rose-500">Password not match...!</span>
                 ) : (
                   <></>
