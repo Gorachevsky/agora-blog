@@ -3,12 +3,12 @@ import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
 import { HiAtSymbol, HiFingerPrint } from "react-icons/hi";
-import styles from "../styles/Form.module.css";
+import styles from "../../styles/Form.module.css";
 import { useState } from "react";
 import { signIn } from "next-auth/react";
-import { login_email, login_password } from "../lib/validate";
+import { login_email, login_password } from "../../lib/validate";
 import { useRouter } from "next/router";
-import MainLayout from "../layout/main";
+import MainLayout from "../../layout/main";
 import { Formik, Form, Field } from "formik";
 
 const Login: React.FC<{}> = () => {
@@ -157,7 +157,7 @@ const Login: React.FC<{}> = () => {
 
           <p className="text-center text-gray-400 ">
             don&apos;t have an account yet?{" "}
-            <Link href={"/register"} legacyBehavior>
+            <Link href={"/auth/register"} legacyBehavior>
               <a className="text-blue-700">Sign Up</a>
             </Link>
           </p>

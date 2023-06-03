@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
-import styles from "../styles/Form.module.css";
+import styles from "../../styles/Form.module.css";
 import { HiAtSymbol, HiFingerPrint, HiOutlineUser } from "react-icons/hi";
 import { useState } from "react";
 import {
@@ -8,9 +8,9 @@ import {
   register_email,
   register_password,
   register_confirm_password,
-} from "../lib/validate";
+} from "../../lib/validate";
 import { useRouter } from "next/router";
-import MainLayout from "../layout/main";
+import MainLayout from "../../layout/main";
 import { Formik, Form, Field } from "formik";
 
 export default function Register() {
@@ -171,7 +171,7 @@ export default function Register() {
           {/* bottom */}
           <p className="text-center text-gray-400 ">
             Have an account?{" "}
-            <Link href={"/login"} legacyBehavior>
+            <Link href={"/auth/login"} legacyBehavior>
               <a className="text-blue-700">Sign In</a>
             </Link>
           </p>

@@ -38,13 +38,13 @@ const Container: React.FC<{ props: any }> = ({ props }) => {
         <div>
           <div
             className="py-4 mb-2 text-center rounded-xl cursor-pointer hover:bg-black"
-            onClick={() => router.push("/login")}
+            onClick={() => router.push("auth/login")}
           >
             Log in
           </div>
           <div
             className="py-4 text-center rounded-xl cursor-pointer hover:bg-black"
-            onClick={() => router.push("/register")}
+            onClick={() => router.push("/auth/register")}
           >
             Sign in
           </div>

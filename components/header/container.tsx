@@ -44,10 +44,10 @@ const Container: React.FC = () => {
 
   let center = (
     <div className="w-7/12 flex">
-      <NavButton props={{ title: "Resume" }} />
-      <NavButton props={{ title: "Docs" }} />
-      <NavButton props={{ title: "Blog" }} />
-      <NavButton props={{ title: "Contact" }} />
+      <NavButton props={{ title: "Resume", path: "/resume" }} />
+      <NavButton props={{ title: "Docs", path: "/docs" }} />
+      <NavButton props={{ title: "Blog", path: "/blog" }} />
+      <NavButton props={{ title: "Contact", path: "/contact" }} />
     </div>
   );
 
