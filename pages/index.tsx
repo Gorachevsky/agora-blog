@@ -1,7 +1,7 @@
-import MainLayout from "../layout/mainLayout";
+import MainLayout from "../layout/main";
 import Head from "next/head";
 import { GetServerSideProps } from "next";
-import Post, { PostProps } from "../components/Post";
+import Post, { PostProps } from "../components/post";
 import prisma from "../lib/prisma";
 
 export const getServerSideProps: GetServerSideProps = async () => {

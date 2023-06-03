@@ -10,7 +10,7 @@ import {
   register_confirm_password,
 } from "../lib/validate";
 import { useRouter } from "next/router";
-import MainLayout from "../layout/mainLayout";
+import MainLayout from "../layout/main";
 import { Formik, Form, Field } from "formik";
 
 export default function Register() {

@@ -1,8 +1,8 @@
 import React from "react";
 import { GetServerSideProps } from "next";
 import Router from "next/router";
-import Layout from "../../components/Layout";
-import { PostProps } from "../../components/Post";
+import Layout from "../../components/layout";
+import { PostProps } from "../../components/post";
 import prisma from "../../lib/prisma";
 
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {

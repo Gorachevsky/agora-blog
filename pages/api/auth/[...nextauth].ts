@@ -57,6 +57,7 @@ const options = {
           email: String(session?.user?.email),
         },
       });
+      console.log(session);
       return session;
     },
   },

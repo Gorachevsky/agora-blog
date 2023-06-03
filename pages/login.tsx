@@ -8,7 +8,7 @@ import { useState } from "react";
 import { signIn } from "next-auth/react";
 import { login_email, login_password } from "../lib/validate";
 import { useRouter } from "next/router";
-import MainLayout from "../layout/mainLayout";
+import MainLayout from "../layout/main";
 import { Formik, Form, Field } from "formik";
 
 const Login: React.FC<{}> = () => {
