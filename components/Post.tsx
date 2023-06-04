@@ -1,6 +1,5 @@
 import React from "react";
 import Router from "next/router";
-import PostLayout from "../layout/post";
 
 export type PostProps = {
   id: string;
@@ -18,16 +17,14 @@ export type PostProps = {
 const Post: React.FC<{ post: PostProps }> = ({ post }) => {
   const authorName = post.author ? post.author.name : "Unknown author";
   return (
-    <PostLayout>
-      <div
-        onClick={() => Router.push("/posts/[id]", `/posts/${post.id}`)}
-        className="cursor-pointer rounded-md hover:bg-cyan-600 p-4 mx-6 my-2"
-      >
-        <h2 className="text-4xl font-bold truncate">{post.title}</h2>
-        <p className="text-md m-4">By {authorName}</p>
-        <p className="text-lg mx-2 truncate">{post.content}</p>
-      </div>
-    </PostLayout>
+    <div
+      onClick={() => Router.push("/posts/[id]", `/posts/${post.id}`)}
+      className="cursor-pointer rounded-md hover:bg-cyan-600 p-4 mx-6 my-2"
+    >
+      <h2 className="text-4xl font-bold truncate">{post.title}</h2>
+      <p className="text-md m-4">By {authorName}</p>
+      <p className="text-lg mx-2 truncate">{post.content}</p>
+    </div>
   );
 };
 
