@@ -1,15 +1,15 @@
 import React, { ReactNode } from "react";
+import Header from "../components/header/container";
 import Head from "next/head";
-import Header from "./header/container";
 
 type Props = {
   children: ReactNode;
 };
 
-const Layout: React.FC<Props> = (props) => (
+const PostLayout: React.FC<Props> = (props) => (
   <div className="min-h-screen text-white break-words">
     <Head>
-      <title>i-hate-my-life.com</title>
+      <title>Agora&apos;s Post</title>
       <meta
         name="description"
         content="A mini blog about my travel adventures"
@@ -22,4 +22,4 @@ const Layout: React.FC<Props> = (props) => (
   </div>
 );
 
-export default Layout;
+export default PostLayout;

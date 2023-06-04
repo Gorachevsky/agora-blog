@@ -1,6 +1,7 @@
 import React from "react";
 import { GetServerSideProps } from "next";
 import Router from "next/router";
+// @ts-ignore
 import { PostProps } from "../../components/post";
 import prisma from "../../lib/prisma";
 

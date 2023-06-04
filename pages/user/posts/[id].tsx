@@ -1,4 +1,5 @@
 import React from "react";
+// @ts-ignore
 import Post, { PostProps } from "../../../components/post";
 import prisma from "../../../lib/prisma";
 import PostsLayout from "../../../layout/posts";
