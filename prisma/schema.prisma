@@ -76,6 +76,8 @@ model User {
   accounts      Account[]
   sessions      Session[]
   posts         Post[]
+  profiles      Profile[]
+  settings      Setting[]
 }
 
 model VerificationToken {
