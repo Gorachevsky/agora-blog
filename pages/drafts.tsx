@@ -1,6 +1,5 @@
 import React from "react";
 import { GetServerSideProps } from "next";
-import Layout from "../components/layout";
 import Post, { PostProps } from "../components/post";
 import prisma from "../lib/prisma";
 
@@ -28,7 +27,6 @@ type Props = {
 
 const Drafts: React.FC<Props> = (props) => {
   return (
-    <Layout>
       <div className="flex flex-col justify-center items-center">
         {props.drafts.map((post) => (
           <div key={post.id} className="mx-4 w-full md:w-2/4">
@@ -36,7 +34,6 @@ const Drafts: React.FC<Props> = (props) => {
           </div>
         ))}
       </div>
-    </Layout>
   );
 };
 

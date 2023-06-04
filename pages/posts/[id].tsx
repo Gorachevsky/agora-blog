@@ -1,7 +1,6 @@
 import React from "react";
 import { GetServerSideProps } from "next";
 import Router from "next/router";
-import Layout from "../../components/layout";
 import { PostProps } from "../../components/post";
 import prisma from "../../lib/prisma";
 
@@ -42,7 +41,6 @@ const Post: React.FC<PostProps> = (props) => {
   }
 
   return (
-    <Layout>
       <div className="flex justify-center items-center">
         <div className="md:w-2/3 mx-8">
           <h2 className="text-4xl font-bold my-4">{title}</h2>
@@ -68,7 +66,6 @@ const Post: React.FC<PostProps> = (props) => {
           </button>
         </div>
       </div>
-    </Layout>
   );
 };
 
