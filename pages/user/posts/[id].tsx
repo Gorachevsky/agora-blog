@@ -1,6 +1,5 @@
 import React from "react";
-// @ts-ignore
-import Post, { PostProps } from "../../../components/post"; // @ts-ignore
+import Post, { PostProps } from "../../../components/post";
 import prisma from "../../../lib/prisma";
 import PostsLayout from "../../../layout/posts";
 import { getSession } from "next-auth/react";
