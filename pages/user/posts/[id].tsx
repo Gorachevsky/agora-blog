@@ -1,10 +1,21 @@
 import React from "react";
-import { GetServerSideProps } from "next";
 import Post, { PostProps } from "../../../components/post";
 import prisma from "../../../lib/prisma";
 import PostsLayout from "../../../layout/posts";
+import { getSession } from "next-auth/react";
 
-export const getServerSideProps: GetServerSideProps = async ({ params }) => {
+export async function getServerSideProps({req, params} : {req: any; params: any;}) {
+  const session: any = await getSession({req});
+
+  if(!session || params?.id !== session?.user?.id) {
+    return {
+      redirect: {
+        destination: "/auth/login",
+        permanent: false,
+      },
+    };
+  }
+
   const feed = JSON.parse(
     JSON.stringify(
       await prisma.post.findMany({

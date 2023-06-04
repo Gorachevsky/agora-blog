@@ -1,9 +1,20 @@
 import React from "react";
-import { GetServerSideProps } from "next";
 import prisma from "../../../lib/prisma";
 import SettingsLayout from "../../../layout/settings";
+import { getSession } from "next-auth/react";
 
-export const getServerSideProps: GetServerSideProps = async ({ params }) => {
+export async function getServerSideProps({req, params} : {req: any; params: any;}) {
+  const session: any = await getSession({req});
+
+  if(!session || params?.id !== session?.user?.id) {
+    return {
+      redirect: {
+        destination: "/auth/login",
+        permanent: false,
+      },
+    };
+  }
+
   const settings = JSON.parse(
     JSON.stringify(
       await prisma.user.findUnique({
