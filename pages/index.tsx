@@ -2,7 +2,7 @@ import MainLayout from "../layout/main";
 import Head from "next/head";
 import { GetServerSideProps } from "next";
 // @ts-ignore
-import Post, { PostProps } from "../components/post";
+import Post, { PostProps } from "../components/post"; // @ts-ignore
 import prisma from "../lib/prisma";
 
 export const getServerSideProps: GetServerSideProps = async () => {
