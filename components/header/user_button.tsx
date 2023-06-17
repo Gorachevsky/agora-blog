@@ -8,7 +8,7 @@ const Button: React.FC<{
 }> = ({ props, visible }) => {
   return (
     <div
-      className={`w-full h-16 flex justify-end mr-4 ${
+      className={`w-full h-16 flex justify-end mr-4 cursor-pointer ${
         visible ? "bg-gray-600 rounded-t-xl" : ""
       }`}
     >
