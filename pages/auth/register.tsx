@@ -1,4 +1,3 @@
-import Head from "next/head";
 import Link from "next/link";
 import styles from "../../styles/Form.module.css";
 import { HiAtSymbol, HiFingerPrint, HiOutlineUser } from "react-icons/hi";
@@ -25,10 +24,10 @@ export default function Register() {
       <MainLayout>
         <section className="w-full sm:w-2/3 md:w-1/2 lg:w-1/3 xl:w-1/4 2xl:w-1/5 mx-auto px-6 sm:px-0 flex flex-col gap-10">
           <div className="title">
-            <h1 className="text-white text-4xl font-bold py-4">Regístrate</h1>
+            <h1 className="text-white text-4xl font-bold py-4">Sign Up</h1>
             <p className="mx-auto px-4 text-gray-400">
-              Es necesario tener una cuenta para poder acceder a todas las
-              características de esta web.
+              If you don&apos;t have an account yet, you can create one to
+              access all the features of this website.
             </p>
           </div>
 

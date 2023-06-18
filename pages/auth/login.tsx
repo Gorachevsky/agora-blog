@@ -28,10 +28,9 @@ const Login: React.FC<{}> = () => {
     <MainLayout>
       <section className="w-full sm:w-2/3 md:w-1/2 lg:w-1/3 xl:w-1/4 2xl:w-1/5 mx-auto px-6 sm:px-0 flex flex-col gap-10">
         <div className="title">
-          <h1 className="text-white text-4xl font-bold py-4">Inicia Sesión</h1>
+          <h1 className="text-white text-4xl font-bold py-4">Sing In</h1>
           <p className="mx-auto px-4 text-gray-400">
-            Es necesario iniciar session para poder acceder a todas las
-            características de esta web.
+            You must be logged in to access all the features of this website.
           </p>
         </div>
 
