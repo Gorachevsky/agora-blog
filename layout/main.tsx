@@ -18,7 +18,7 @@ const MainLayout: React.FC<Props> = (props) => (
       <link rel="icon" href="/agora-icon.ico" />
     </Head>
     <Header />
-    <div className="md:mt-6">{props.children}</div>
+    <div className="">{props.children}</div>
   </div>
 );
 

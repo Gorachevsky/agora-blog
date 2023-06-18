@@ -20,14 +20,14 @@ const Container: React.FC = () => {
   }
 
   let left = (
-    <div className="w-2/12 flex">
+    <div className="ml-10 mr-8 1/12 flex">
       <div
-        className="w-38 mx-auto my-4 cursor-pointer"
+        className="w-20 mx-auto my-4 cursor-pointer"
         onClick={() => router.push("/")}
       >
         <span>
           <Image
-            src="/agora-logo.png"
+            src="/agoraforce-logo.png"
             width={100}
             height={100}
             alt="Picture of the author"
@@ -39,7 +39,7 @@ const Container: React.FC = () => {
   );
 
   let center = (
-    <div className="w-7/12 flex mt-6">
+    <div className="w-9/12 flex mt-6">
       <NavButton props={{ title: "Resume", path: "/resume" }} />
       <NavButton props={{ title: "Docs", path: "/docs" }} />
       <NavButton props={{ title: "Blog", path: "/blog" }} />
@@ -69,10 +69,7 @@ const Container: React.FC = () => {
           onMouseOver={showModal}
           onMouseLeave={hideModal}
         >
-          <UserButton
-            props={{ image: "/agora-icon.ico" }}
-            visible={userModal}
-          />
+          <UserButton props={{ image: "/user-icon.png" }} visible={userModal} />
           {userModal && <UserModal props="" />}
         </div>
       )}
@@ -80,7 +77,7 @@ const Container: React.FC = () => {
   );
 
   return (
-    <nav className="h-14 flex">
+    <nav className="h-16 mb-8 flex">
       {left}
       {center}
       {right}

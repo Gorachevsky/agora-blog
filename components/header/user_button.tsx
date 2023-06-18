@@ -8,11 +8,11 @@ const Button: React.FC<{
 }> = ({ props, visible }) => {
   return (
     <div
-      className={`w-full h-16 flex justify-end mr-4 cursor-pointer ${
+      className={`w-full h-14 flex justify-end cursor-pointer ${
         visible ? "bg-gray-600 rounded-t-xl" : ""
       }`}
     >
-      <div className="my-auto mr-2">
+      <div className="my-auto ml-4 mr-2">
         {props?.name ? <p>{props?.name}</p> : <p>Not conected</p>}
       </div>
       <div className="w-10 h-10 my-auto rounded-full bg-gray-600 border-2">
@@ -24,7 +24,7 @@ const Button: React.FC<{
           className="rounded-full pointer-events-none	select-none"
         />
       </div>
-      <IoCaretDown className="my-auto mx-2 mr-4" />
+      <IoCaretDown className="my-auto ml-2 mr-4" />
     </div>
   );
 };
