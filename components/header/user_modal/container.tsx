@@ -2,9 +2,12 @@ import React from "react";
 import { signOut } from "next-auth/react";
 import Router from "next/router";
 
-const Container: React.FC<{ props: any }> = ({ props }) => {
+const Container: React.FC<{ props: any; width: number }> = ({
+  props,
+  width,
+}) => {
   return (
-    <div className="w-full bg-gray-600 p-4 rounded-b-xl border-black border-t">
+    <div className="w-full h-screen md:h-auto bg-gray-600 p-4 rounded-b-xl border-black border-t absolute mr-2">
       {props ? (
         <div>
           <div
