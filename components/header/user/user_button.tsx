@@ -6,17 +6,25 @@ import { FiX } from "react-icons/fi";
 const Button: React.FC<{
   props: any;
   visible: boolean;
+  setVisible: any;
   width: number;
-}> = ({ props, visible, width }) => {
+}> = ({ props, visible, width, setVisible }) => {
+  function hideModal() {
+    setVisible(false);
+  }
+
   return (
     <div
-      className={`w-full h-14 flex justify-stretch sm:mt-2 md:mt-4 ${
-        visible ? "bg-gray-600 rounded-t-xl" : ""
-      }`}
+      className={`w-full flex py-3.5 md:py-5 px-3 sm:px-6 md:px-9 ${
+        visible ? "bg-gray-600" : ""
+      } ${width! > 1024 ? "rounded-t-2xl" : ""}`}
     >
       {width <= 768 && visible && (
-        <div className="w-full flex justify-start">
-          <FiX className="ml-2 my-auto text-4xl cursor-pointer" />
+        <div className="w-auto flex justify-start">
+          <FiX
+            className="my-auto text-4xl cursor-pointer"
+            onClick={hideModal}
+          />
         </div>
       )}
       <div className="flex w-full justify-end cursor-pointer">
@@ -31,14 +39,16 @@ const Button: React.FC<{
           }`}
         >
           <Image
-            src={props?.image}
+            src={`${
+              props?.image !== undefined ? props?.image : "/user-icon.png"
+            }`}
             width={100}
             height={100}
             alt="Picture of the author"
             className="rounded-full pointer-events-none	select-none"
           />
         </div>
-        <IoCaretDown className="my-auto ml-2 text-xl mr-3 sm:mr-5 md:mr-9" />
+        <IoCaretDown className="my-auto ml-2 text-xl" />
       </div>
     </div>
   );

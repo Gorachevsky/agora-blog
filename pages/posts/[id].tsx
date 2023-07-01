@@ -41,31 +41,31 @@ const Post: React.FC<PostProps> = (props) => {
   }
 
   return (
-      <div className="flex justify-center items-center">
-        <div className="md:w-2/3 mx-8">
-          <h2 className="text-4xl font-bold my-4">{title}</h2>
-          <p className="ml-2 italic text-gray-400">
-            By {props?.author?.name || "Unknown author"}
-            {" | "}
-            {props.createdAt.substring(0, 10)}
-          </p>
-          <p className="ml-2 my-4 whitespace-normal">{props.content}</p>
-          {!props.published && (
-            <button
-              onClick={() => publishPost(props.id)}
-              className="border-solid border-2 border-white rounded-md p-2 mt-2 mr-4 md:mt-4"
-            >
-              Publish
-            </button>
-          )}
+    <div className="flex justify-center items-center">
+      <div className="md:w-2/3 mx-8">
+        <h2 className="text-4xl font-bold my-4">{title}</h2>
+        <p className="ml-2 italic text-gray-400">
+          By {props?.author?.name || "Unknown author"}
+          {" | "}
+          {props.createdAt.substring(0, 10)}
+        </p>
+        <p className="ml-2 my-4 whitespace-normal">{props.content}</p>
+        {!props.published && (
           <button
-            onClick={() => deletePost(props.id)}
-            className="border-solid border-2 border-white rounded-md p-2 mt-2 md:mt-4"
+            onClick={() => publishPost(props.id)}
+            className="border-solid border-2 border-white rounded-md p-2 mt-2 mr-4 md:mt-4"
           >
-            Delete
+            Publish
           </button>
-        </div>
+        )}
+        <button
+          onClick={() => deletePost(props.id)}
+          className="border-solid border-2 border-white rounded-md p-2 mt-2 md:mt-4"
+        >
+          Delete
+        </button>
       </div>
+    </div>
   );
 };
 

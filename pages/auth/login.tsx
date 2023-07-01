@@ -141,8 +141,6 @@ const Login: React.FC<{}> = () => {
                   </span>
                 </button>
               </div>
-
-              <button type="submit">Submit</button>
             </Form>
           )}
         </Formik>

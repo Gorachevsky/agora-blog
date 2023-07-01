@@ -10,7 +10,7 @@ export async function getServerSideProps({req, params} : {req: any; params: any;
   if(!session || params?.id !== session?.user?.id) {
     return {
       redirect: {
-        destination: "/auth/login",
+        destination: "/",
         permanent: false,
       },
     };
