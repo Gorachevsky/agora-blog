@@ -4,9 +4,7 @@ import Button from "./user_button";
 
 const Container: React.FC<{ props: any }> = ({ props }) => {
   function hideModal() {
-    if (props?.width > 768) {
-      props?.setVisible(false);
-    }
+    props?.setVisible(false);
   }
 
   function showModal() {
@@ -19,19 +17,28 @@ const Container: React.FC<{ props: any }> = ({ props }) => {
         <p className="p-4 px-8">Validating session...</p>
       ) : (
         <div
-          className={`absolute top-0 right-0 z-20 ${
-            props?.visible ? "w-screen md:w-2/5 lg:w-auto ml-2 h-full" : ""
+          className={`flex justify-end absolute top-0 right-0 ${
+            props?.visible ? "w-screen" : "w-auto"
           }`}
-          onMouseOver={showModal}
-          onMouseLeave={hideModal}
         >
-          <Button
-            props={props}
-            visible={props?.visible}
-            setVisible={props?.setVisible}
-            width={props?.width}
-          />
-          {props?.visible && <Modal props={props} />}
+          {props?.visible && (
+            <div
+              className="h-screen w-0 md:w-7/12 lg:w-2/3 xl:w-auto"
+              onMouseOver={hideModal}
+            ></div>
+          )}
+          <div
+            className={`${
+              props?.visible
+                ? "w-screen md:w-5/12 lg:w-1/3 xl:w-auto h-full lg:mt-4 lg:mr-5"
+                : "lg:mt-2"
+            }`}
+            onMouseOver={showModal}
+            onMouseLeave={hideModal}
+          >
+            <Button props={props} />
+            {props?.visible && <Modal props={props} />}
+          </div>
         </div>
       )}
     </div>

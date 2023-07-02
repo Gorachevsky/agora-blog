@@ -5,7 +5,7 @@ import Router from "next/router";
 
 const Container: React.FC<{ props: any }> = ({ props }) => {
   return (
-    <div className="w-full h-screen md:h-auto bg-gray-600 p-4 rounded-b-xl border-black border-t absolute mr-2">
+    <div className="w-full h-screen lg:h-auto bg-gray-600 p-4 rounded-b-xl border-black border-t">
       {props?.id ? (
         <div>
           <div

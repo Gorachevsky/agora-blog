@@ -48,11 +48,13 @@ const Container: React.FC = () => {
   };
 
   return (
-    <div className="flex w-screen mb-4 lg:mb-20 justify-between z-20">
-      <NavigationModalButton props={navigation_props} />
-      <Logo props={logo_props} />
-      <Navigation props={navigation_props} />
-      <User props={user_props} />
+    <div className="w-screen xl:w-10/12 2xl:w-2/3 3xl:w-1/2 flex justify-center mx-auto">
+      <div className="flex w-full mb-4 lg:mb-20 justify-between z-20">
+        <NavigationModalButton props={navigation_props} />
+        <Logo props={logo_props} />
+        <Navigation props={navigation_props} />
+        <User props={user_props} />
+      </div>
     </div>
   );
 };
