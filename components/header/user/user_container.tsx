@@ -12,12 +12,10 @@ const Container: React.FC<{ props: any }> = ({ props }) => {
   }
 
   return (
-    <div className="w-full flex relative">
-      {props?.status === "loading" ? (
-        <p className="p-4 px-8">Validating session...</p>
-      ) : (
+    <div className="relative w-2/5">
+      {!props?.hide && (
         <div
-          className={`flex justify-end absolute top-0 right-0 ${
+          className={`flex absolute top-0 right-0 ${
             props?.visible ? "w-screen" : "w-auto"
           }`}
         >

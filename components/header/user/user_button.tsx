@@ -23,7 +23,7 @@ const Button: React.FC<{ props: any }> = ({ props }) => {
         </div>
       )}
       <div className="flex w-full justify-end cursor-pointer">
-        {(props?.width > 1024 || props?.visible) && (
+        {(props?.width >= 1024 || props?.visible) && (
           <div className="my-auto ml-4 mr-2 text-right">
             {props?.name ? <p>{props?.name}</p> : <p>Not connected</p>}
           </div>

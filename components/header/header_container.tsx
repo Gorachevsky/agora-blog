@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useSession } from "next-auth/react";
 import { useWindowSize } from "../functions/windowSize";
-import Logo from "./logo/container";
+import Logo from "./logo/logo_container";
 import Navigation from "./navigation/nav_container";
 import NavigationModalButton from "./navigation/nav_modal_button";
 import User from "./user/user_container";
@@ -27,6 +27,7 @@ const Container: React.FC = () => {
     width: size?.width,
     visible: navigationModal,
     setVisible: setNavigationModal,
+    hide: userModal,
   };
   const logo_props = {
     status: status,
@@ -45,16 +46,21 @@ const Container: React.FC = () => {
     width: size?.width,
     visible: userModal,
     setVisible: setUserModal,
+    hide: navigationModal,
   };
 
   return (
     <div className="w-screen xl:w-10/12 2xl:w-2/3 3xl:w-1/2 flex justify-center mx-auto">
-      <div className="flex w-full mb-4 lg:mb-20 justify-between z-20">
-        <NavigationModalButton props={navigation_props} />
-        <Logo props={logo_props} />
-        <Navigation props={navigation_props} />
-        <User props={user_props} />
-      </div>
+      {status === "loading" ? (
+        <p className="p-4 px-8">Validating session...</p>
+      ) : (
+        <div className="flex w-full mb-28 lg:mb-20 justify-between z-10">
+          <NavigationModalButton props={navigation_props} />
+          <Logo props={logo_props} />
+          <Navigation props={navigation_props} />
+          <User props={user_props} />
+        </div>
+      )}
     </div>
   );
 };
