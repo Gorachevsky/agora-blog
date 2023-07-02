@@ -13,7 +13,7 @@ const Container: React.FC<{ props: any }> = ({ props }) => {
 
   return (
     <div className="relative w-2/5">
-      {!props?.hide && (
+      {(!props?.hide || props?.width >= 768) && (
         <div
           className={`flex absolute top-0 right-0 ${
             props?.visible ? "w-screen" : "w-auto"

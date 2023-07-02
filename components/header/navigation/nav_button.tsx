@@ -11,7 +11,7 @@ const Button: React.FC<{ props: ButtonProps }> = ({ props }) => {
 
   return (
     <div
-      className="pt-2 px-2 mx-4 hover:border-b-2 border-white cursor-pointer"
+      className="py-2 px-2 mx-4 my-auto hover:border-b-2 border-white cursor-pointer"
       onClick={() => router.push(props.path)}
     >
       {props.title}

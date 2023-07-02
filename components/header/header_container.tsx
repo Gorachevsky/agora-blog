@@ -54,7 +54,7 @@ const Container: React.FC = () => {
       {status === "loading" ? (
         <p className="p-4 px-8">Validating session...</p>
       ) : (
-        <div className="flex w-full mb-28 lg:mb-20 justify-between z-10">
+        <div className="flex w-full mb-14 justify-between z-10">
           <NavigationModalButton props={navigation_props} />
           <Logo props={logo_props} />
           <Navigation props={navigation_props} />

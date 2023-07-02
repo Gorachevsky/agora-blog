@@ -2,7 +2,7 @@ import React from "react";
 import Button from "./nav_button";
 const Container: React.FC<{ props: any }> = ({ props }) => {
   return props?.width > 1024 ? (
-    <div className="2xl:w-9/12 flex mt-6">
+    <div className="flex mt-6">
       <Button props={{ title: "Resume", path: "/resume" }} />
       <Button props={{ title: "Docs", path: "/docs" }} />
       <Button props={{ title: "Blog", path: "/blog" }} />
