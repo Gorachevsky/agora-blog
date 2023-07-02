@@ -16,19 +16,19 @@ const Container: React.FC<{ props: any }> = ({ props }) => {
       {(!props?.hide || props?.width >= 768) && (
         <div
           className={`flex absolute top-0 right-0 ${
-            props?.visible ? "w-screen" : "w-auto"
+            props?.visible ? "w-screen lg:w-full" : "w-auto"
           }`}
         >
           {props?.visible && (
             <div
-              className="h-screen w-0 md:w-7/12 lg:w-2/3 xl:w-auto"
+              className="h-screen w-0 md:w-7/12 lg:w-2/3"
               onMouseOver={hideModal}
             ></div>
           )}
           <div
             className={`${
               props?.visible
-                ? "w-screen md:w-5/12 lg:w-1/3 xl:w-auto h-full lg:mt-4 lg:mr-5"
+                ? "w-full md:w-5/12 lg:w-11/12 h-full lg:mt-4 lg:mr-5"
                 : "lg:mt-2"
             }`}
             onMouseOver={showModal}
