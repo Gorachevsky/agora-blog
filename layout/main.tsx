@@ -1,5 +1,5 @@
 import React, { ReactNode } from "react";
-import Header from "../components/header/container";
+import Header from "../components/header/header_container";
 import Head from "next/head";
 
 type Props = {
@@ -7,7 +7,7 @@ type Props = {
 };
 
 const MainLayout: React.FC<Props> = (props) => (
-  <div className="min-h-screen text-white break-words">
+  <div className="min-h-screen text-white break-words w-screen">
     <Head>
       <title>Agora&apos;s Home</title>
       <meta
