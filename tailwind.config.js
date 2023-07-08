@@ -6,7 +6,12 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      strokeWidth: {
+        6: "6px",
+        8: "8px",
+      },
+    },
   },
   plugins: [],
 };

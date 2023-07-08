@@ -13,7 +13,7 @@ const MainLayout: React.FC<Props> = (props) => {
 
   return (
     <div className="min-h-screen text-white break-words w-screen">
-      {status === "unauthenticated" ? (
+      {status === "loading" ? (
         <div>
           <Head>
             <title>Loading...</title>

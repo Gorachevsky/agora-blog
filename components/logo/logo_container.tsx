@@ -9,7 +9,7 @@ const Container: React.FC<{ animation: string }> = ({ animation }) => {
         <div className="w-auto text-white">
           <Link href={"/"}>
             <div className="w-20 mt-3 cursor-pointer">
-              <Logo text={true} />
+              <Logo props={{ show_text: true }} />
             </div>
           </Link>
         </div>
@@ -19,8 +19,8 @@ const Container: React.FC<{ animation: string }> = ({ animation }) => {
     return (
       <div className="w-auto mx-auto my-auto flex justify-center">
         <div className="w-auto text-white">
-          <div className="w-60">
-            <Logo text={false} />
+          <div className="w-72">
+            <Logo props={{ show_text: false }} />
           </div>
         </div>
       </div>
