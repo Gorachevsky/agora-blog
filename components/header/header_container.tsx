@@ -22,7 +22,6 @@ const Container: React.FC = () => {
   const { data: session, status } = useSession();
   const { innerWidth } = useContext(SizeContext);
   const { scrollY } = useContext(ScrollContext);
-  console.log(scrollY);
   const [userModal, setUserModal] = useState(false);
   const [navigationModal, setNavigationModal] = useState(false);
   const navigation_props = {
