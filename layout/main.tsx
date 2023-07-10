@@ -15,7 +15,7 @@ const MainLayout: React.FC<Props> = (props) => {
   return (
     <>
       {status === "loading" ? (
-        <div>
+        <>
           <Head>
             <title>Loading...</title>
             <meta name="description" content="loading content" />
@@ -28,7 +28,7 @@ const MainLayout: React.FC<Props> = (props) => {
           <div className="h-screen w-screen flex">
             <Logo animation="loader" />
           </div>
-        </div>
+        </>
       ) : (
         <div className={styles.layout}>
           <Head>
