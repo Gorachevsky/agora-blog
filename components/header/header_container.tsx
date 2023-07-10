@@ -4,6 +4,7 @@ import Logo from "../logo/logo_container";
 import Navigation from "./navigation/nav_container";
 import NavigationModalButton from "./navigation/nav_modal_button";
 import User from "./user/user_container";
+import styles from "../../styles/components/Header.module.css";
 import { SizeContext } from "../../utils/size_observer";
 import { ScrollContext } from "../../utils/scroll_observer";
 
@@ -44,13 +45,11 @@ const Container: React.FC = () => {
   };
 
   return (
-    <div className="w-screen xl:w-10/12 2xl:w-2/3 3xl:w-1/2 flex justify-center mx-auto">
-      <div className="flex w-full mb-5 justify-between z-10 fixed">
-        <NavigationModalButton props={navigation_props} />
-        <Logo animation="header" />
-        <Navigation props={navigation_props} />
-        <User props={user_props} />
-      </div>
+    <div className={styles.container}>
+      <NavigationModalButton props={navigation_props} />
+      <Logo animation="header" />
+      <Navigation props={navigation_props} />
+      <User props={user_props} />
     </div>
   );
 };

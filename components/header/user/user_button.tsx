@@ -10,7 +10,7 @@ const Button: React.FC<{ props: any }> = ({ props }) => {
 
   return (
     <div
-      className={`w-full flex py-3.5 md:py-6 pr-3 sm:pr-6 md:pr-9 lg:rounded-t-2xl ${
+      className={`w-full flex py-3.5 md:py-6 lg:rounded-t-2xl ${
         props?.visible ? "bg-gray-600 lg:px-4 lg:py-4" : ""
       }`}
     >

@@ -55,7 +55,7 @@ const Button: React.FC<{ props: any }> = ({ props }) => {
       </div>
     </div>
   ) : (
-    <div></div>
+    <></>
   );
 };
 

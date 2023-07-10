@@ -1,5 +1,6 @@
 import React, { ReactNode } from "react";
 import { useSession } from "next-auth/react";
+import styles from "../styles/layouts/Main.module.css";
 import Header from "../components/header/header_container";
 import Logo from "../components/logo/logo_container";
 import Head from "next/head";
@@ -12,7 +13,7 @@ const MainLayout: React.FC<Props> = (props) => {
   const { status } = useSession();
 
   return (
-    <div className="min-h-screen text-white break-words w-screen">
+    <>
       {status === "loading" ? (
         <div>
           <Head>
@@ -29,7 +30,7 @@ const MainLayout: React.FC<Props> = (props) => {
           </div>
         </div>
       ) : (
-        <div>
+        <div className={styles.layout}>
           <Head>
             <title>Agora&apos;s Home</title>
             <meta
@@ -42,11 +43,13 @@ const MainLayout: React.FC<Props> = (props) => {
             />
             <link rel="icon" href="/agora-icon.ico" />
           </Head>
-          <Header />
-          <div>{props.children}</div>
+          <div className={styles.layout_background}>
+            <Header />
+            <div className={styles.layout_container}>{props.children}</div>
+          </div>
         </div>
       )}
-    </div>
+    </>
   );
 };
 

@@ -34,7 +34,7 @@ const Home: React.FC<Props> = (props) => {
   return (
     <>
       <MainLayout>
-        <div className="flex flex-col items-center h-screen mt-24">
+        <div className="flex flex-col items-center h-screen">
           {props.feed.map((post) => (
             <div key={post.id} className="mx-4 w-full md:w-2/4">
               <Post post={post} />

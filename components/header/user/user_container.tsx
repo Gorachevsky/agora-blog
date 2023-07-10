@@ -1,6 +1,7 @@
 import React from "react";
 import Modal from "./user_modal";
 import Button from "./user_button";
+import styles from "../../../styles/components/User.module.css";
 
 const Container: React.FC<{ props: any }> = ({ props }) => {
   function hideModal() {
@@ -12,7 +13,7 @@ const Container: React.FC<{ props: any }> = ({ props }) => {
   }
 
   return (
-    <div className="relative w-2/5">
+    <div className={styles.container}>
       {(!props?.hide || props?.width >= 768) && (
         <div
           className={`flex absolute top-0 right-0 ${
@@ -28,7 +29,7 @@ const Container: React.FC<{ props: any }> = ({ props }) => {
           <div
             className={`${
               props?.visible
-                ? "w-full md:w-5/12 lg:w-11/12 h-full lg:mt-4 lg:mr-5"
+                ? "w-full md:w-5/12 lg:w-11/12 h-full lg:mt-4"
                 : "lg:mt-2"
             }`}
             onMouseOver={showModal}
