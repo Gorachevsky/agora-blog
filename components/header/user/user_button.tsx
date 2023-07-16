@@ -2,13 +2,8 @@ import React from "react";
 import Image from "next/image";
 import styles from "../../../styles/components/User.module.css";
 import { IoCaretDown } from "react-icons/io5";
-import { FiX } from "react-icons/fi";
 
 const Button: React.FC<{ props: any }> = ({ props }) => {
-  function hideModal() {
-    props?.setVisible(false);
-  }
-
   function showModal() {
     props?.setVisible(true);
   }

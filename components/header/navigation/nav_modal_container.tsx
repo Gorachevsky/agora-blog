@@ -4,12 +4,19 @@ import styles from "../../../styles/components/Navigation.module.css";
 
 const Container: React.FC<{ props: any }> = ({ props }) => {
   function hideModal() {
-    //props?.setVisible(false);
+    props?.setVisible(false);
+  }
+
+  function showModal() {
+    props?.setVisible(true);
   }
 
   return (
-    <div className={styles.modal} onMouseLeave={hideModal}>
-      <div className={styles.modal_head}>Menu</div>
+    <div
+      className={styles.modal}
+      onMouseLeave={hideModal}
+      onMouseOver={showModal}
+    >
       <div className={styles.modal_link}>
         <Link href={"/resume"}>
           <div className={styles.modal_link_button}>Resume</div>

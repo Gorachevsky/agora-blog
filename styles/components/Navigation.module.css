@@ -1,6 +1,23 @@
 .container {
   width: 40%;
   display: flex;
+}
+
+.layout {
+  height: 100%;
+  display: flex;
+  justify-content: start;
+}
+
+.layout_active {
+  width: 18rem;
+  height: 100%;
+  text-align: center;
+  border-style: solid;
+  border-radius: 1rem 1rem 0 0;
+  display: flex;
+  justify-content: start;
+  background-color: #4b4b4b;
   position: relative;
 }
 
@@ -16,21 +33,21 @@
   border-color: white;
 }
 
-.icon_container {
-  margin: auto 1rem;
-}
-
 .modal {
   width: 18rem;
   background-color: #4b4b4b;
-  border-radius: 1rem;
+  border-radius: 0 0 1rem 1rem;
   position: absolute;
-  top: 0;
+  top: 6rem;
 }
 
 .modal_head {
+  width: 18rem;
   text-align: center;
-  height: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 6rem;
   border-style: solid;
   border-color: white;
   border-width: 0 0 1px 0;

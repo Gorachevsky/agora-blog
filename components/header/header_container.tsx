@@ -34,7 +34,7 @@ const Container: React.FC = () => {
   };
   const user_props = {
     id: session ? session?.user?.id : "",
-    name: session ? session?.user?.name : "     Not Conected",
+    name: session ? session?.user?.name : "Not Conected",
     email: session ? session?.user?.email : "",
     image: session ? session?.user?.image : "/user-icon.png",
     status: status,

@@ -6,15 +6,22 @@ import Menu from "../../icons/menu";
 const Button: React.FC<{ props: any }> = ({ props }) => {
   return props?.width < 1024 ? (
     <div className={styles.container}>
-      {props?.visible ? (
-        <Modal props={props} />
-      ) : (
-        <div className={styles.icon_container}>
+      <div
+        className={`${props?.visible ? styles.layout_active : styles.layout}`}
+      >
+        {props?.visible ? (
+          <>
+            <div className={styles.modal_head}>
+              <p className={styles.modal_head_text}>Content</p>
+            </div>
+            <Modal props={props} />
+          </>
+        ) : (
           <Menu
             props={{ visible: props?.visible, setVisible: props?.setVisible }}
           />
-        </div>
-      )}
+        )}
+      </div>
     </div>
   ) : null;
 };
