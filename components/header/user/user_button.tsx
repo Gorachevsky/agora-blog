@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import styles from "../../../styles/components/User.module.css";
 import { IoCaretDown } from "react-icons/io5";
 import { FiX } from "react-icons/fi";
 
@@ -8,20 +9,15 @@ const Button: React.FC<{ props: any }> = ({ props }) => {
     props?.setVisible(false);
   }
 
+  function showModal() {
+    props?.setVisible(true);
+  }
+
   return (
     <div
-      className={`w-full flex py-3.5 md:py-6 lg:rounded-t-2xl ${
-        props?.visible ? "bg-gray-600 lg:px-4 lg:py-4" : ""
-      }`}
+      className={`${props?.visible ? styles.layout_active : styles.layout}`}
+      onMouseOver={showModal}
     >
-      {props?.width < 768 && props?.visible && (
-        <div className="w-auto flex justify-start pl-3 sm:pl-6">
-          <FiX
-            className="my-auto text-4xl cursor-pointer"
-            onClick={hideModal}
-          />
-        </div>
-      )}
       <div className="flex w-full justify-end cursor-pointer">
         {(props?.width >= 1024 || props?.visible) && (
           <div className="my-auto ml-4 mr-2 text-right">

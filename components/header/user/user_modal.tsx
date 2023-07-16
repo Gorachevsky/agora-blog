@@ -1,11 +1,24 @@
 import React from "react";
 import Link from "next/link";
 import { signOut } from "next-auth/react";
+import styles from "../../../styles/components/User.module.css";
 import Router from "next/router";
 
 const Container: React.FC<{ props: any }> = ({ props }) => {
+  function showModal() {
+    props?.setVisible(true);
+  }
+
+  function hideModal() {
+    props?.setVisible(false);
+  }
+
   return (
-    <div className="w-full h-screen lg:h-auto bg-gray-600 p-4 rounded-b-xl border-black border-t">
+    <div
+      className={styles.modal}
+      onMouseOver={showModal}
+      onMouseLeave={hideModal}
+    >
       {props?.id ? (
         <div>
           <div

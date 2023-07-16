@@ -1,45 +1,42 @@
 import React from "react";
-import Modal from "./user_modal";
-import Button from "./user_button";
+import Image from "next/image";
 import styles from "../../../styles/components/User.module.css";
+import Modal from "./user_modal";
+import { IoCaretDown } from "react-icons/io5";
 
 const Container: React.FC<{ props: any }> = ({ props }) => {
-  function hideModal() {
-    props?.setVisible(false);
-  }
-
   function showModal() {
     props?.setVisible(true);
   }
 
+  function hideModal() {
+    props?.setVisible(false);
+  }
+
   return (
     <div className={styles.container}>
-      {(!props?.hide || props?.width >= 768) && (
+      <div className={styles.layout}>
         <div
-          className={`flex absolute top-0 right-0 ${
-            props?.visible ? "w-screen lg:w-full" : "w-auto"
-          }`}
+          className={`${props?.visible ? styles.button_active : styles.button}`}
+          onMouseOver={showModal}
+          onMouseLeave={hideModal}
         >
-          {props?.visible && (
-            <div
-              className="h-screen w-0 md:w-7/12 lg:w-2/3"
-              onMouseOver={hideModal}
-            ></div>
+          {(props?.width >= 1024 || props?.visible) && (
+            <p className={styles.name}>{props?.name}</p>
           )}
-          <div
-            className={`${
-              props?.visible
-                ? "w-full md:w-5/12 lg:w-11/12 h-full lg:mt-4"
-                : "lg:mt-2"
+          <Image
+            src={`${
+              props?.image !== undefined ? props?.image : "/user-icon.png"
             }`}
-            onMouseOver={showModal}
-            onMouseLeave={hideModal}
-          >
-            <Button props={props} />
-            {props?.visible && <Modal props={props} />}
-          </div>
+            width={50}
+            height={50}
+            alt="Picture of the author"
+            className={styles.image}
+          />
+          <IoCaretDown className={styles.dropdown} />
         </div>
-      )}
+        {props?.visible && <Modal props={props} />}
+      </div>
     </div>
   );
 };

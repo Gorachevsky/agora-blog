@@ -1,4 +1,63 @@
 .container {
   width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.layout {
+  display: flex;
+  justify-content: end;
   position: relative;
 }
+
+.button {
+  width: 18rem;
+  display: flex;
+  justify-content: end;
+  cursor: pointer;
+  padding: 1rem;
+  border-radius: 1rem 1rem 0 0;
+}
+
+.button_active {
+  width: 18rem;
+  display: flex;
+  justify-content: end;
+  cursor: pointer;
+  padding: 1rem;
+  border-radius: 1rem 1rem 0 0;
+  background-color: #4b4b4b;
+}
+
+.image {
+  width: 2.8rem;
+  border: 2px solid white;
+  border-radius: 100%;
+  margin: auto 0.5rem auto 0.7rem;
+  pointer-events: none;
+  user-select: none;
+}
+
+.name {
+  margin: auto 0;
+  text-align: right;
+}
+
+.dropdown {
+  margin: auto 0;
+}
+
+.modal {
+  width: 18rem;
+  padding: 1rem;
+  background-color: #4b4b4b;
+  border-color: white;
+  border-style: double;
+  border-width: 1px 0 0 0;
+  border-radius: 0 0 1rem 1rem;
+  position: absolute;
+  top: 4.8rem;
+}
+
+/* "w-full h-screen lg:h-auto bg-gray-600 p-4 rounded-b-xl border-black border-t" */
