@@ -10,9 +10,7 @@ const Container: React.FC<{ props: any }> = ({ props }) => {
       <Button props={{ title: "Blog", path: "/blog" }} />
       <Button props={{ title: "Contact", path: "/contact" }} />
     </div>
-  ) : (
-    <div></div>
-  );
+  ) : null;
 };
 
 export default Container;

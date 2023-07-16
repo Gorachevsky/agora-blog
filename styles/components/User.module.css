@@ -60,4 +60,32 @@
   top: 4.8rem;
 }
 
-/* "w-full h-screen lg:h-auto bg-gray-600 p-4 rounded-b-xl border-black border-t" */
+@media only screen and (min-width: 640px) {
+  .layout_background {
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .layout_background {
+    width: 90%;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .layout_background {
+    width: 80%;
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+  .layout_background {
+    width: 70%;
+  }
+}
+
+@media only screen and (min-width: 1536px) {
+  .layout_background {
+    width: 60%;
+  }
+}
