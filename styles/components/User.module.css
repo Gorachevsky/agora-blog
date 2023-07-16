@@ -17,7 +17,8 @@
   display: flex;
   justify-content: end;
   cursor: pointer;
-  padding: 1rem;
+  padding: 0 1rem 0 0;
+  margin: 1rem 1rem 0 0;
   border-radius: 1rem 1rem 0 0;
 }
 
@@ -26,7 +27,8 @@
   display: flex;
   justify-content: end;
   cursor: pointer;
-  padding: 1rem;
+  padding: 0 1rem 0 0;
+  margin: 1rem 1rem 0 0;
   border-radius: 1rem 1rem 0 0;
   background-color: #4b4b4b;
 }
@@ -59,6 +61,7 @@
   border-radius: 0 0 1rem 1rem;
   position: absolute;
   top: 6rem;
+  right: 1rem;
 }
 
 @media only screen and (min-width: 640px) {
@@ -76,6 +79,18 @@
 @media only screen and (min-width: 1024px) {
   .layout_background {
     width: 80%;
+  }
+
+  .modal {
+    right: 0;
+  }
+
+  .button {
+    margin: 1rem 0 0 0;
+  }
+
+  .button_active {
+    margin: 1rem 0 0 0;
   }
 }
 

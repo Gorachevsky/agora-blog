@@ -1,6 +1,7 @@
 .menu {
   width: 2.5rem;
-  margin: auto;
+  margin: auto 0 auto 2rem;
+  padding-top: 1rem;
   fill: white;
   cursor: pointer;
 }
